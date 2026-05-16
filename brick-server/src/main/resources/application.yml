@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: brick-server
+  datasource:
+    url: jdbc:postgresql://localhost:5432/brickdb
+    username: brickuser
+    password: brickpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  jwt:
+    secret: bXlTdXBlclNlY3JldEtleUZvckp3dFRva2VuU2lnbmluZzEyMzQ1Njc4OTA=
+    expiration-ms: 86400000

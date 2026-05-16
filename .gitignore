@@ -1,0 +1,23 @@
+# Root .gitignore for Brickventory Monorepo
+
+# IntelliJ / IDEs
+.idea/
+*.iml
+.vscode/
+
+# Build folders
+build/
+out/
+target/
+dist/
+.gradle/
+
+# Node
+node_modules/
+npm-debug.log
+
+# OS
+.DS_Store
+
+# Logs
+*.log
