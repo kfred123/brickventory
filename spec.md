@@ -3,6 +3,7 @@
 This document serves as the single source of truth for the Brickventory project's architecture, data models, and features. It represents the current state of the application.
 
 ## Architecture
+- **Repository**: Monorepo containing both the frontend (`brick-app`) and backend (`brick-server`).
 - **Backend Framework**: Kotlin with Spring Boot
 - **Database**: PostgreSQL
 - **Migrations**: Flyway (`src/main/resources/db/migration`)
