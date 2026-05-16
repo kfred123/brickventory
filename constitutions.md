@@ -10,6 +10,9 @@ This repository follows the **OpenSpec** framework for AI-assisted software deve
 2. **Structure Before Code**
    Do not write or modify code before the specification is defined and approved by the human developer. The specification serves as the source of truth.
 
+3. **Test-Driven Development (TDD)**
+   Tests must be written before the actual implementation code. Tests serve as executable specifications that describe the desired functionality, and the implementation must be written to fulfill those tests.
+
 ## OpenSpec Workflow
 
 1. **Explore**: Discuss and explore ideas without generating formal files.
