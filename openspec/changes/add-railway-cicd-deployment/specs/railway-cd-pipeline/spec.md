@@ -87,11 +87,11 @@ The system SHALL handle the cold start scenario gracefully without losing data o
 
 ## MODIFIED Requirements
 
-### Requirement: Backend API specification
-The Brickventory backend API endpoints remain unchanged in terms of interface. The only modification is that deployment is now automated rather than manual.
+### Requirement: Backend API specification and deployment
+The Brickventory backend API endpoints SHALL remain unchanged in terms of interface. The system SHALL only modify the deployment mechanism from manual to automated via GitHub Actions and Render.
 
-All existing requirements from `openspec/specs/main/spec.md` regarding API endpoints (/api/auth, /api/bricks, /api/sets, etc.) continue to apply unchanged.
+All existing requirements from `openspec/specs/main/spec.md` regarding API endpoints (/api/auth, /api/bricks, /api/sets, etc.) SHALL continue to apply unchanged. The system SHALL maintain backward compatibility with all existing API consumers.
 
 #### Scenario: Deployed API maintains compatibility
-- **WHEN** a new version is deployed to Railway
-- **THEN** all existing API endpoints continue to work with the same request/response format as before
+- **WHEN** a new version is deployed to Render
+- **THEN** all existing API endpoints SHALL continue to work with the same request/response format as before
