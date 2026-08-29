@@ -29,7 +29,7 @@ This document serves as the single source of truth for the Brickventory project'
 - Links a `BrickSet` to a `Brick` with a `quantity`.
 
 ### Users & Collection
-- **Users (`users`)**: Standard user account with `email`, `password_hash`, and `display_name`.
+- **Users (`users`)**: Standard user account with `email`, `password_hash`, and `display_name` (used as "Username" in the UI).
 - **User Bricks (`user_bricks`)**: Tracks individual bricks owned by a user (`quantity`, `notes`). Links a `User` to a `Brick`.
 - **User Sets (`user_sets`)**: Tracks complete sets owned by a user (`quantity`, `notes`). Links a `User` to a `BrickSet`.
 

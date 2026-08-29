@@ -83,7 +83,7 @@ fun LoginScreen(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Display Name (register only)
+                // Username (register only)
                 AnimatedVisibility(
                     visible = isRegisterMode,
                     enter = expandVertically() + fadeIn(),
@@ -92,7 +92,7 @@ fun LoginScreen(
                     OutlinedTextField(
                         value = displayName,
                         onValueChange = { displayName = it },
-                        label = { Text("Display Name") },
+                        label = { Text("Username") },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth(),
                         shape = RoundedCornerShape(12.dp)
@@ -122,6 +122,26 @@ fun LoginScreen(
                     shape = RoundedCornerShape(12.dp)
                 )
 
+                // Confirm Password (register only)
+                var confirmPassword by remember { mutableStateOf("") }
+                
+                AnimatedVisibility(
+                    visible = isRegisterMode,
+                    enter = expandVertically() + fadeIn(),
+                    exit = shrinkVertically() + fadeOut()
+                ) {
+                    OutlinedTextField(
+                        value = confirmPassword,
+                        onValueChange = { confirmPassword = it },
+                        label = { Text("Confirm Password") },
+                        singleLine = true,
+                        visualTransformation = PasswordVisualTransformation(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                }
+
                 // Error
                 errorMessage?.let { error ->
                     Text(
@@ -139,6 +159,12 @@ fun LoginScreen(
                         isLoading = true
                         errorMessage = null
                         scope.launch {
+                            if (isRegisterMode && password != confirmPassword) {
+                                errorMessage = "Passwords do not match"
+                                isLoading = false
+                                return@launch
+                            }
+                            
                             val result = if (isRegisterMode) {
                                 apiClient.register(email, password, displayName)
                             } else {
@@ -157,7 +183,7 @@ fun LoginScreen(
                         .fillMaxWidth()
                         .height(52.dp),
                     shape = RoundedCornerShape(12.dp),
-                    enabled = !isLoading && email.isNotBlank() && password.isNotBlank()
+                    enabled = !isLoading && email.isNotBlank() && password.isNotBlank() && (!isRegisterMode || (displayName.isNotBlank() && confirmPassword.isNotBlank()))
                 ) {
                     if (isLoading) {
                         CircularProgressIndicator(
