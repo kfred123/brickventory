@@ -92,6 +92,33 @@ After Web Service is created:
 
 **Important**: Never commit these secrets to git. GitHub will mask them in logs.
 
+## Optional: Automated Backups to Google Cloud Storage (recommended)
+
+Render free-tier database retention is limited. To protect data indefinitely, configure automatic daily backups to Google Cloud Storage (GCS) and retain them as long as needed.
+
+### Add these additional GitHub Secrets:
+- `PGHOST` - Postgres host (from Render DB connection)
+- `PGPORT` - Postgres port (usually 5432)
+- `PGUSER` - Postgres username
+- `PGPASSWORD` - Postgres password
+- `PGDATABASE` - Postgres database name
+- `GCS_BUCKET` - GCS bucket name (e.g., `brickventory-backups`)
+- `GCP_SA_KEY` - Google Cloud service account JSON key (full JSON)
+
+### How it works
+- A scheduled GitHub Actions workflow (`.github/workflows/backup-postgres-to-gcs.yml`) performs a `pg_dump` every 24 hours and uploads a gzipped dump to the configured GCS bucket.
+- Filenames include UTC timestamp: `brickventory-db-YYYYMMDDTHHMMSSZ.dump.gz`.
+- Keep backups indefinitely or configure GCS lifecycle rules to prune older archives.
+
+### Setting up the GCS bucket
+1. Create a GCS bucket in your Google Cloud project.
+2. Create a Service Account with `Storage Object Creator` role for the bucket.
+3. Generate and download the JSON key for that service account.
+4. Save the JSON key as the GitHub Secret `GCP_SA_KEY`.
+5. Create the GitHub Secrets listed above.
+
+**Security note**: Keep your service account key secure. Use fine-grained roles and rotate keys periodically.
+
 ## Step 3: Test the Workflow
 
 ### 3.1 Trigger Workflow
