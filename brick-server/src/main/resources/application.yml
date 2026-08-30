@@ -2,9 +2,9 @@ spring:
   application:
     name: brick-server
   datasource:
-    url: jdbc:postgresql://localhost:5432/brickdb
-    username: brickuser
-    password: brickpassword
+    url: ${SPRING_DATASOURCE_URL:jdbc:${DATABASE_URL:postgresql://localhost:5432/brickdb}}
+    username: ${SPRING_DATASOURCE_USERNAME:${DB_USER:brickuser}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASS:brickpassword}}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
