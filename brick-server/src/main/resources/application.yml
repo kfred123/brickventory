@@ -6,6 +6,13 @@ spring:
     username: brickuser
     password: brickpassword
     driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      initialization-fail-timeout: 0
   jpa:
     hibernate:
       ddl-auto: validate
@@ -19,6 +26,12 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
 
 app:
   jwt:
