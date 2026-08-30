@@ -18,22 +18,22 @@
 
 ## 3. Create GitHub Actions Workflow
 
-- [ ] 3.1 Create `.github/workflows/deploy-to-render.yml` file
-- [ ] 3.2 Configure workflow trigger: `on: [push]` with `branches: [main]`
-- [ ] 3.3 Add checkout step to clone repository
-- [ ] 3.4 Add Java/Kotlin setup step (set JDK version to match project)
-- [ ] 3.5 Add Maven/Gradle build step with `mvn clean package` or equivalent
-- [ ] 3.6 Add test execution step to run unit/integration tests
-- [ ] 3.7 Add Render API authentication using stored API key
-- [ ] 3.8 Add deployment step using Render API (curl or REST call to trigger deploy)
-- [ ] 3.9 Add wait step (30 seconds) for Render to stabilize deployment
-- [ ] 3.10 Add health check step (curl to Render URL's `/api/health` endpoint)
-- [ ] 3.11 Add error notification (optional: Slack, email, or GitHub status)
+- [x] 3.1 Create `.github/workflows/deploy-to-render.yml` file
+- [x] 3.2 Configure workflow trigger: `on: [push]` with `branches: [main]`
+- [x] 3.3 Add checkout step to clone repository
+- [x] 3.4 Add Java/Kotlin setup step (set JDK version to match project)
+- [x] 3.5 Add Maven/Gradle build step with `mvn clean package` or equivalent
+- [x] 3.6 Add test execution step to run unit/integration tests
+- [x] 3.7 Add Render API authentication using stored API key
+- [x] 3.8 Add deployment step using Render API (curl or REST call to trigger deploy)
+- [x] 3.9 Add wait step (30 seconds) for Render to stabilize deployment
+- [x] 3.10 Add health check step (curl to Render URL's `/api/health` endpoint)
+- [x] 3.11 Add error notification (optional: Slack, email, or GitHub status)
 
 ## 4. Test Workflow
 
-- [ ] 4.1 Commit workflow file to main branch
-- [ ] 4.2 Push to GitHub and monitor Actions tab for execution
+- [x] 4.1 Commit workflow file to main branch
+- [x] 4.2 Push to GitHub and monitor Actions tab for execution
 - [ ] 4.3 Verify build step completes successfully
 - [ ] 4.4 Verify tests pass (or fail with clear error messages)
 - [ ] 4.5 Verify Render API call succeeds (deployment triggered)
@@ -52,20 +52,20 @@
 
 ## 6. Frontend Integration
 
-- [ ] 6.1 Document the Render production URL in README
+- [x] 6.1 Document the Render production URL in README
 - [ ] 6.2 Update frontend `.env` or config to point to Render URL
 - [ ] 6.3 Test frontend can connect to deployed backend API
-- [ ] 6.4 Document cold start behavior for frontend team (expected 5-10s on first request after idle)
+- [x] 6.4 Document cold start behavior for frontend team (expected 5-10s on first request after idle)
 - [ ] 6.5 Add frontend error handling for cold start delays
 
 ## 7. Documentation & Handoff
 
-- [ ] 7.1 Document the production Render URL in README or project docs
-- [ ] 7.2 Document how to manually rollback (via Render dashboard or git revert)
-- [ ] 7.3 Document how to monitor deployments (GitHub Actions Deployments tab)
-- [ ] 7.4 Add troubleshooting guide for common issues (cold starts, database connection)
-- [ ] 7.5 Document Render free tier limits and what to do if exceeded
-- [ ] 7.6 Update team documentation with CI/CD workflow process
+- [x] 7.1 Document the production Render URL in README or project docs
+- [x] 7.2 Document how to manually rollback (via Render dashboard or git revert)
+- [x] 7.3 Document how to monitor deployments (GitHub Actions Deployments tab)
+- [x] 7.4 Add troubleshooting guide for common issues (cold starts, database connection)
+- [x] 7.5 Document Render free tier limits and what to do if exceeded
+- [x] 7.6 Update team documentation with CI/CD workflow process
 
 ## 8. Verification & Launch
 
