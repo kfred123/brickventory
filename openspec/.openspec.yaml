@@ -1,0 +1,30 @@
+project:
+  name: Brickventory
+  description: Monorepo for Brickventory - a LEGO brick inventory management system
+  version: "1.0"
+
+specs:
+  - id: main
+    name: Brickventory Main Specification
+    file: specs/00-brickventory-main.md
+    description: Main architecture, data models, and API endpoints
+    tags:
+      - architecture
+      - data-models
+      - api
+
+  - id: monorepo-migration
+    name: Monorepo Migration Spec
+    file: specs/01-monorepo-migration.md
+    description: Specification for consolidating brick-app and brick-server into a monorepo
+    tags:
+      - architecture
+      - migration
+
+changes:
+  directory: changes
+
+github:
+  owner: kfred123
+  repo: brickventory
+  branch: main

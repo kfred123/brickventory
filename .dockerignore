@@ -1,0 +1,16 @@
+.git
+.gitignore
+.github
+.env
+.env.local
+README.md
+RENDER_SETUP.md
+.idea
+.vscode
+*.md
+docker-compose.yml
+.DS_Store
+node_modules
+target
+build
+dist
