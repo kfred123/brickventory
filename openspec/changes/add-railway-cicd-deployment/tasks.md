@@ -45,7 +45,7 @@
 ## 5. Render Configuration & Optimization
 
 - [ ] 5.1 Configure Render to auto-scale (if needed)
-- [ ] 5.2 Set up PostgreSQL connection pooling in Spring Boot for cold starts
+- [x] 5.2 Set up PostgreSQL connection pooling in Spring Boot for cold starts
 - [ ] 5.3 Review Render billing dashboard (confirm free tier usage)
 - [ ] 5.4 Configure Render to keep web service on free plan (no paid upgrades)
 - [ ] 5.5 Test Render deploy history and manual rollback from Render dashboard
